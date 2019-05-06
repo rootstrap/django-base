@@ -24,6 +24,7 @@ SECRET_KEY = '!a8isru3(gk8*@rmr75l5_+fe-t%&=%xgh)+fki)noaoieosb8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SITE_ID = 1
 
 ALLOWED_HOSTS = []
 
@@ -31,12 +32,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # Thrid parties
+    'rest_framework',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'rest_auth',
+    'rest_auth.registration',
+    # User defined apps
+    'api',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -69,20 +82,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_base.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+REST_USE_JWT = True
+
+AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -118,3 +128,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if os.getenv('DYNO'):
+    django_heroku.settings(locals(), test_runner=False)
+    exec(open('/app/django_base/heroku_settings.py').read())
+    # Heroku settings must be run not imported
+    # this is due to certain declarations of
+    # variables.
+elif os.getenv('CIRCLECI', False):
+    from django_base.circleci_settings import *
+else:
+    from django_base.local_settings import *
