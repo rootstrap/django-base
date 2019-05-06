@@ -131,7 +131,7 @@ STATIC_URL = '/static/'
 
 if os.getenv('DYNO'):
     django_heroku.settings(locals(), test_runner=False)
-    exec(open('/app/target/heroku_settings.py').read())
+    exec(open('/app/django_base/heroku_settings.py').read())
     # Heroku settings must be run not imported
     # this is due to certain declarations of
     # variables.
