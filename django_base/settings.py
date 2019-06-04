@@ -83,6 +83,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'django_base.wsgi.application'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
@@ -91,6 +94,11 @@ REST_FRAMEWORK = {
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 REST_USE_JWT = True
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=30),
+}
+
 
 AUTH_USER_MODEL = 'users.User'
 
