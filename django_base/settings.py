@@ -95,6 +95,11 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 REST_USE_JWT = True
 
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=30),
+}
+
+
 AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
