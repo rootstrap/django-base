@@ -1,0 +1,22 @@
+version: 2 # use CircleCI 2.0
+jobs: # A basic unit of work in a run
+  build: # runs not using Workflows must have a `build` job as entry point
+    # directory where steps are run
+    working_directory: ~/django-base/
+    docker: # run the steps with Docker
+      # CircleCI Python images available at: https://hub.docker.com/r/circleci/python/, in this example we use python3.7.2
+      - image: circleci/python:3.7.2
+        environment: # environment variables for primary container, here you can define env variables
+
+          VAR_EXAMPLE: 'value'
+
+      - image: circleci/postgres:9.6 # you can define db configuration, using postgres for example
+        environment:
+          POSTGRES_USER: db_username_example
+          POSTGRES_DB: db_name_example
+
+    steps: # steps that comprise the build job, with -run
+      - checkout # check out source code to working directory
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
+      - run: sudo pip install -r requirements.txt
