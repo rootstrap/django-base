@@ -1,8 +1,7 @@
+version: "2" #current version is 2
 exclude_patterns:
-        - "migrations/" 
-engines:
-  pylint:
+        - "**/*_settings.py" # add here the patterns of the files you want to exclude from analysis, **/*_settings.py for example
+
+plugins: # configure the plugins for analysis, pep8 for example
+  pep8:
     enabled: true
-    channel: "beta"
-    plugins:
-- django
