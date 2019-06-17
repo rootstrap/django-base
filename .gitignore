@@ -3,4 +3,4 @@
 *.db
 *.swp
 *.sql
-*_settings.py
+*/settings/local.py
