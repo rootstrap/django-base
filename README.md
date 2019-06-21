@@ -16,3 +16,10 @@ This project includes the basic boilerplate for a basic rest-api made in django.
 Rename the desired procfile from one of the examples.
 Gunicorn is the standard for simple web apps wich rely on wsgi only.
 If you need to use websockets and channels you'll need to use daphne to suport both asgi and wsgi.
+
+## Running on docker
+
+Install Docker official mac app https://hub.docker.com/editions/community/docker-ce-desktop-mac
+Run the following commands:
+1- `docker-compose build` to create the image.
+2- `docker-compose run` runs any missing migration and starts the backend on port 8000 (you can change this in the docker-compose.yml).
