@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.7.4
 ENV PYTHONUNBUFFERED 1
 ENV ENV_ROLE docker
 RUN mkdir /code

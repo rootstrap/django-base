@@ -20,7 +20,7 @@ If you need to use websockets and channels you'll need to use daphne to suport b
 ## Running on docker
 
 Install Docker official mac app https://hub.docker.com/editions/community/docker-ce-desktop-mac .  
-Run the following commands:
+Start Docker, login on docker (with `docker login`) and run the following commands:
 1. `docker-compose build` to create the image.
-2. `docker-compose run` runs any missing migration and starts the backend on port 8000 (you can change this in the docker-compose.yml).
-2- `docker-compose run` runs any missing migration and starts the backend on port 8000 (you can change this in the docker-compose.yml).
+2. `docker-compose run web python manage.py migrate` to run migrations.
+3. `docker-compose run web` to start the backend on port 8000 (you can change this in the docker-compose.yml).
