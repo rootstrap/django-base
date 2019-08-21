@@ -34,3 +34,11 @@ You can follow the installation instructions to start working.
 Rename the desired procfile from one of the examples.
 Gunicorn is the standard for simple web apps wich rely on wsgi only.
 If you need to use websockets and channels you'll need to use daphne to suport both asgi and wsgi.
+
+## Running on docker
+
+Install Docker official mac app https://hub.docker.com/editions/community/docker-ce-desktop-mac .  
+Start Docker, login on docker (with `docker login`) and run the following commands:
+1. `docker-compose build` to create the image.
+2. `docker-compose run web python manage.py migrate` to run migrations.
+3. `docker-compose run web` to start the backend on port 8000 (you can change this in the docker-compose.yml).
