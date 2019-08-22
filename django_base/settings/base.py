@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'corsheaders',
     # User defined apps
     'api',
-    'users',
+    'applications.users',
 ]
 
 MIDDLEWARE = [

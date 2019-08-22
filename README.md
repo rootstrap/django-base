@@ -42,3 +42,54 @@ Start Docker, login on docker (with `docker login`) and run the following comman
 1. `docker-compose build` to create the image.
 2. `docker-compose run web python manage.py migrate` to run migrations.
 3. `docker-compose run web` to start the backend on port 8000 (you can change this in the docker-compose.yml).
+
+## Suggested project scaffolding
+
+This is the suggested scaffolding for a django project. You can take a look at: 
+https://github.com/rootstrap/tech-guides
+```
+project_name
+|
+|__project_name(Here you should put all the settings for the app)
+|    |__ __init__.py
+|    |__settings
+|          |__ __init__.py
+|          |__ base.py
+|          |__ development.py
+|          |__ staging.py
+|          |__ production.py
+|          ...
+|    |__wsgi.py(optional)
+|    |__asgi.py(optional)
+|    |__urls.py
+|    ...
+|
+|__templates "Here are general templates, will be loaded last in the application"
+|
+|__applications
+|   |__ __init__.py
+|   |__app1
+|    ... |__models.py(Split to folder and import models in __init__ if neccesary)
+|        |__views.py
+|        |__serializers.py
+|        |__urls.py
+|        |__test
+|        | |__requests
+|        |    |__model_name_1
+|        |    ... |__test_create
+|        |        |__test_update
+|        |        |__test_retrieve
+|        |        |__test_delete
+|        |        |__test_custom_functionality(optional)
+|        |        ...
+|        |
+|        |__templates(Optional and not present if the project is api only)
+|        |
+|        |__api.py(Optional and not present if project is api only)
+|        ... (if needed add more files)
+|
+|__utils
+|   |__util_1.py
+|   |__util_2.py
+...
+```
