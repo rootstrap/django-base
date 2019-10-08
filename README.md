@@ -5,29 +5,35 @@ This project includes the basic boilerplate for a basic rest-api made in django.
 ## Create django project from django-base.
 You can follow this steps to create a django project, using this one as a base.
 
-1. Clone this repo: `$ git clone git@github.com:rootstrap/django-base.git` and change the folder name (django-base) to your new project name.
-2. Move into the renamed folder and delete the track from git: `$ sudo rm -r ./git`
+1. Clone this repo:  
+`$ git clone git@github.com:rootstrap/django-base.git` and change the folder name (django-base) to your new project name.
+2. Move into the renamed folder and delete the track from git:  
+`$ sudo rm -r ./git`
 3. Change the main app name (django_base) to your new main app name.
-4. Change all ocurrencies of django-base to your project name, and all ocurrencies of django_base to your main app name. You can use for example: `$ grep iRl "django-base" ./` in the project folder to search all ocurrencies.
-5. Run `$ python manage.py runserver` and check the correct start, if you want to corroborate.
-6. Create your project repo in github.
-7. Run this commands to start track of git and push the project:
-    * `$ git init`
-    * `$ git add .`
-    * `$ git commit -m "initial commit"`
-    * `$ git remote add origin <url_from_your_repo>`
-    * `$ git push -u origin master`
+4. Change all ocurrencies of django-base to your project name, and all ocurrencies of django_base to your main app name. You can use for example:  
+`$ grep iRl "django-base" ./` in the project folder to search all ocurrencies.
+5. Generate a unique secret key for your project:
+    + `$ python manage.py shell` to open a Django bash.
+    + `$ from django.core.management.utils import get_random_secret_key`
+    + `$ get_random_secret_key()`. After this command, you get a secret key. Set the value in a virtual environment variable called `DJANGO_SECRET_KEY` (this will be used in settings).
+6. If you want to corroborate, run:
+`$ python manage.py runserver` and check the correct start.  
 
 If everything went ok, you have now your project created with this one as a base.
 You can follow the installation instructions to start working.
 
 ## Installation instructions.
-- Create a virtual environment with: `mkvirtualenv <env_name>`
-- Switch to the virtualenv with: `workon <env_name>`
-- Install the dependencies: `$ pip install -r requirements.txt`
+- Create a virtual environment with:  
+`$ mkvirtualenv <env_name>`
+- Switch to the virtualenv with:  
+`$ workon <env_name>`
+- Install the dependencies:  
+`$ pip install -r requirements.txt`
 - Create a local_settings.py file (you can use the local_settings_template)
-- Run the initial migrations: `$ python manage.py migrate`
-- To add apps to the project you have to run: `$ python manage.py startapp <appname>`
+- Run the initial migrations:  
+`$ python manage.py migrate`
+- To add apps to the project you have to run:  
+`$ python manage.py startapp <appname>`
 - Edit the models.py as desired, and add the urls to api/urls.py
 
 ## Deploy to Heroku.
@@ -39,9 +45,9 @@ If you need to use websockets and channels you'll need to use daphne to suport b
 
 Install Docker official mac app https://hub.docker.com/editions/community/docker-ce-desktop-mac .  
 Start Docker, login on docker (with `docker login`) and run the following commands:
-1. `docker-compose build` to create the image.
-2. `docker-compose run web python manage.py migrate` to run migrations.
-3. `docker-compose run web` to start the backend on port 8000 (you can change this in the docker-compose.yml).
+1. `$ docker-compose build` to create the image.
+2. `$ docker-compose run web python manage.py migrate` to run migrations.
+3. `$ docker-compose run web` to start the backend on port 8000 (you can change this in the docker-compose.yml).
 
 ## Suggested project scaffolding
 
