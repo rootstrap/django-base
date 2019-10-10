@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
     'corsheaders',
+    'debug_toolbar',
     # User defined apps
     'api',
     'applications.users',
@@ -63,9 +64,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'django_base.urls'
+
+INTERNAL_IPS = ['127.0.0.1',]
 
 TEMPLATES = [
     {

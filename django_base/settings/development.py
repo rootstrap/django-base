@@ -2,9 +2,9 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_base',
-        'USER': 'django_base',
-        'PASSWORD': 'django_base',
+        'NAME': 'kanbas',
+        'USER': 'kanbas',
+        'PASSWORD': 'kanbas',
     }
 }
 
