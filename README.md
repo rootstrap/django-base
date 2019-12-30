@@ -138,10 +138,10 @@ project_name
 
 ## License
 
-React Redux Base is available under the MIT license. See the LICENSE file for more info.
+Django Base is available under the MIT license. See the LICENSE file for more info.
 
 ## Credits
 
-**React Redux Base** is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our [contributors](https://github.com/rootstrap/react-redux-base/contributors).
+**Django Base** is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our [contributors](https://github.com/rootstrap/django-base/contributors).
 
 [<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)
