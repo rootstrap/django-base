@@ -29,7 +29,7 @@ You can follow the installation instructions to start working.
 `$ workon <env_name>`
 - Install the dependencies:  
 `$ pip install -r requirements.txt`
-- Create a local_settings.py file (you can use the local_settings_template)
+- Set general configuration in `<main_app_name>/settings/base.py` file. Then split the configuration for each environment you use, in different files under `<main_app_name>/settings/<env_name>.py`. After that, set on each environment you use, the `<env_name>` in a environment variable called `ENV_ROLE`. Default environment name is `development`.
 - Run the initial migrations:  
 `$ python manage.py migrate`
 - To add apps to the project you have to run:  
