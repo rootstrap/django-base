@@ -1,4 +1,13 @@
-# django-base
+# django-base (DEPRECATED)
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)]()
+
+
+This repository is no longer maintained. We recommend to use [Cookiecutter Django](https://github.com/pydanny/cookiecutter-django) instead.  
+Cookicutter Django is maintained by the open source community, and is a command-line utility that creates projects from project templates; in this case for the Django Framework.  
+Also, it has more features and it's more customizable.
+
+
 
 This project includes the basic boilerplate for a basic rest-api made in django.
 
