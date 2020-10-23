@@ -3,7 +3,7 @@
 [![No Maintenance Intended](http://unmaintained.tech/badge.svg)]()
 
 
-This repository is no longer maintained. We recommend to use [Cookiecutter Django](https://github.com/pydanny/cookiecutter-django) instead.  
+This repository is no longer maintained. We recommend to use [Cookiecutter Django](https://github.com/pydanny/cookiecutter-django) instead, following [this guide](https://github.com/rootstrap/tech-guides/blob/master/python/cookiecutter-django.md).
 Cookicutter Django is maintained by the open source community, and is a command-line utility that creates projects from project templates; in this case for the Django Framework.  
 Also, it has more features and it's more customizable.
 
